@@ -95,7 +95,7 @@ bookRender(booksMainRandomized);
 // ! Second Form, Filter form: a-z, z-a, years, pages and etc
 function showSearchBooks() {
   swiperBox.classList.add("d-none");
-  return books.filter((book) => {
+  return booksMainRandomized.filter((book) => {
     const meetsCriteria =
       (booksSelection.value === "all" || booksSelection.value) &&
       (booksSelectionLanguage.value === "all" ||
@@ -251,7 +251,7 @@ booksSwiperRandomized = books
   .map((value) => ({ value, sort: Math.random() }))
   .sort((a, b) => a.sort - b.sort)
   .map(({ value }) => value);
-  
+
 let booksSliced = booksSwiperRandomized.slice(0, 15);
 
 const swiperFragment = new DocumentFragment();
