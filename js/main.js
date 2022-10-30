@@ -22,7 +22,7 @@ const swiperList = document.querySelector(".swiper-list");
 let bookMarkArr = JSON.parse(window.localStorage.getItem("bookmark")) || [];
 
 // ! Randomize main array
-booksRandomized = books
+booksMainRandomized = books
   .map((value) => ({ value, sort: Math.random() }))
   .sort((a, b) => a.sort - b.sort)
   .map(({ value }) => value);
@@ -90,7 +90,7 @@ function bookRender(books, titleRegex = "") {
   }
   bookList.appendChild(bookFragment);
 }
-bookRender(booksRandomized);
+bookRender(booksMainRandomized);
 
 // ! Second Form, Filter form: a-z, z-a, years, pages and etc
 function showSearchBooks() {
@@ -246,8 +246,13 @@ savedBookList.addEventListener("click", (evt) => {
   }
 });
 
-// ! Slice items and execute it in swiper
-let booksSliced = booksRandomized.slice(0, 15);
+// ! Randomize again Slice items and execute it in swiper
+booksSwiperRandomized = books
+  .map((value) => ({ value, sort: Math.random() }))
+  .sort((a, b) => a.sort - b.sort)
+  .map(({ value }) => value);
+  
+let booksSliced = booksSwiperRandomized.slice(0, 15);
 
 const swiperFragment = new DocumentFragment();
 function swiperBooks() {
