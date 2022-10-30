@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BooksList App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body id="site-body">
+    <main>
+        <header id="book-header">
+            <div class="container">
+                <div class="book-header-part">
+                    <form class="book-header-form">
+                        <input class="book-search-input" type="text" placeholder="Search favourite your book">
+                        <button class="header-form-btn book-form-btn" type="submit">Search</button>
+                    </form>
+                    <div class="saved-books-box">
+                        <button class="btn open-saved-btn" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" title="Saved Books">
+                        </button>
+                        <div class="offcanvas offcanvas-end saved-list-box" tabindex="-1" id="offcanvasExample"
+                            aria-labelledby="offcanvasExampleLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title saved-box-title" id="offcanvasExampleLabel">Saved
+                                    Books
+                                </h5>
+                                <button type="button" class="saved-box-close-btn" data-bs-dismiss="offcanvas"
+                                    aria-label="Close">X</button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="saved-books-list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section id="book-box">
+            <div class="container">
+                <div class="book-part">
+                    <div class="book-filter-box">
+                        <form class="book-form">
+                            <select class="books-selection" name="books_search">
+                                <option value="all">All</option>
+                                <option value="a-z">Sort A-Z</option>
+                                <option value="z-a">Sort Z-A</option>
+                                <option value="year-new-old">Sort by Year new to old</option>
+                                <option value="year-old-new">Sort by Year old to new</option>
+                                <option value="pages-to-high">Sort by Pages to high</option>
+                                <option value="pages-to-low">Sort by Pages to low</option>
+                            </select>
+                            <select class="books-selection-language" name="books_search_by_language">
+                                <option value="all" disabled selected>Choose language</option>
+                            </select>
+                            <input class="book-year-sort-input" type="number" placeholder="Search by year">
+                            <button class="filter-book-btn book-form-btn" type="submit">Filter</button>
+                        </form>
+                    </div>
+                    <div class="book-lists-box">
+                        <div class="swiper mySwiper swiper-box">
+                            <ul class="swiper-wrapper swiper-list"></ul>
+                        </div>
+                        <ul class="book-list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="not-found-books d-none">
+            <p class="not-found-books-text">Sorry book you wanted is not defined :( Try search another one</p>
+        </div>
+    </main>
+
+    <template class="book-template">
+        <li class="book-item">
+            <div class="book-card">
+                <img class="book-info-img" src="..." alt="Info about book">
+                <div class="book-info-card">
+                    <h3 class="book-card-title"></h3>
+                    <p class="book-card-country book-item-text"></p>
+                    <div class="book-item-info-box">
+                        <p class="book-card-year book-item-text"></p>
+                        <p class="book-card-language book-item-text"></p>
+                        <p class="book-card-pages book-item-text"></p>
+                    </div>
+                    <p class="book-card-author book-item-text"></p>
+                    <div class="book-item-link-box">
+                        <a class="book-card-more-info-link" href="" target="blank">More info</a>
+                        <button class="book-save-btn" type="button"></button>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="./js/books.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
